@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تطبيق العهدة</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="main-container">
+        <h2>تطبيق العهدة</h2>
+        <button class="icon-button" onclick="navigateTo('create')">إنشاء عهدة</button>
+        <button class="icon-button" onclick="navigateTo('release')">إخلاء عهدة</button>
+    </div>
+
+    <div id="create" class="page">
+        <h2>إنشاء عهدة</h2>
+        <form id="createForm">
+            <label for="bondNumber">رقم العهدة</label>
+            <input type="text" id="bondNumber" name="bondNumber" required>
+            <label for="bondName">اسم العهدة</label>
+            <input type="text" id="bondName" name="bondName" required>
+            <label for="chequeNumber">رقم الشيك</label>
+            <input type="text" id="chequeNumber" name="chequeNumber" required>
+            <label for="chequeDate">تاريخ الشيك</label>
+            <input type="date" id="chequeDate" name="chequeDate" required>
+            <label for="bondAuthority">جهة العهدة</label>
+            <input type="text" id="bondAuthority" name="bondAuthority" required>
+            <label for="bondYear">سنة العهدة</label>
+            <input type="number" id="bondYear" name="bondYear" required>
+            <button type="button" onclick="printBondData()">طباعة البيانات</button>
+        </form>
+        <button onclick="navigateTo('main')">عودة</button>
+    </div>
+
+    <div id="release" class="page">
+        <h2>إخلاء عهدة</h2>
+        <form id="releaseForm">
+            <label for="bondSelect">اختر العهدة</label>
+            <select id="bondSelect">
+                <option value="bond1">عهدة 1</option>
+                <option value="bond2">عهدة 2</option>
+            </select>
+            <button type="button" onclick="navigateTo('releaseDetails')">فتح مسير الإخلاء</button>
+        </form>
+        <button onclick="navigateTo('main')">عودة</button>
+    </div>
+
+    <div id="releaseDetails" class="page">
+        <h2>مسير الإخلاء</h2>
+        <form id="releaseDetailsForm">
+            <label for="itemNumber">م</label>
+            <input type="number" id="itemNumber" name="itemNumber" required>
+            <label for="amount">المبلغ</label>
+            <input type="number" id="amount" name="amount" required>
+            <label for="description">البيان</label>
+            <input type="text" id="description" name="description" required>
+            <label for="beneficiary">المستفيد</label>
+            <input type="text" id="beneficiary" name="beneficiary" required>
+            <label for="documentNumber">رقم الوثيقة</label>
+            <input type="text" id="documentNumber" name="documentNumber" required>
+            <label for="documentDate">تاريخ الوثيقة</label>
+            <input type="date" id="documentDate" name="documentDate" required>
+            <button type="button" onclick="printReleaseData()">طباعة البيانات</button>
+        </form>
+        <button onclick="navigateTo('release')">عودة</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
